@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: http://anupamahosad.com/sitemap.xml
+Host: anupamahosad.com
