@@ -5,63 +5,108 @@ html {
   color: $font-color;
   font-family: sans-serif;
   line-height: 30px;
-  padding: 25px 100px;
+  box-sizing: border-box;
+
+  &:before {
+        content: " ";
+        width: 100%;
+        height: 7px;
+        display: block;
+        background: $primary-title-color;
+    }
 }
 
-.section {
-    margin: 75px 0;
+body {
+    padding: 50px 100px 20px;
+}
 
-    &:first-child {
-        margin: 0;
-    }
+.inline {
+    display: inline-block;
+}
+
+.anchor-link {
+    color: $secondary-title-color;
+    text-decoration: none;
 }
 
 .section-title {
     color: $primary-title-color;
     text-align: center;
     text-transform: uppercase;
-    margin: 50px 0;
+    margin: 100px 0 75px;
 
     &:before, &:after {
         content: " ";
         width: 70px;
         height: 2px;
         display: inline-block;
-        background: #000;
+        background: $primary-title-color;
         vertical-align: middle;
         margin: 0px 15px;
     }
 }
 
-.about-me {
+.about-me-section {
     display: flex;
+    margin-top: 30px;
+}
+
+.about-me-side {
+    padding: 0 100px;
 }
 
 .profile-image {
     border-radius: 50%;
     vertical-align: middle;
-    height: 250px;
-    padding-left: 50px;
-    margin-left: 50px;
+    height: 300px;
+    background: #c7839a;
+}
+
+.profile-name {
+    color: $primary-title-color;
+    // font-family: "Arizonia", cursive, sans-serif;
+    // font-family: 'Euphoria Script', cursive;
+    font-family: 'Lily Script One', cursive;
+    font-weight: normal;
+    font-size: 50px;
+    margin-top: 0;
+    line-height: 1em;
+}
+
+.profile-subtitle {
+    color: $secondary-title-color;
+    margin-top: -20px;
+    margin-bottom: 40px;
 }
 
 .profile-desc {
-    padding: 0 100px;
     vertical-align: middle;
+    text-align: justify;
 }
 
 .skills-section {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 }
 
 .skill-item {
-    padding: 5px 20px;
-    margin: 20px 10px;
+    margin: 20px;
     border-radius: 3px;
-    background: #56778b;
-    color: #FFF;
+    width: 100px;
+
+    &.medium {
+        width: 150px;
+    }
+
+    &.large {
+        width: 200px;
+    }
+
+    img {
+        width: 100%;
+    }
 }
 
 .findme-section {
@@ -76,23 +121,138 @@ html {
 }
 
 .projects-section {
+    /* overrides for older browsers that do not support grid */
+    display: flex;
     display: grid;
-    grid-template: repeat(2, 100px) / repeat(3, 1fr);
-    gap: 20px;
+    grid-template: repeat(2, 400px) / repeat(3, 1fr);
 }
 
 .project-item {
-    background: rgba(0, 0, 0, 0.5);
-    color: #FFF;
-    text-transform: uppercase;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    background-size: cover;
+    position: relative;
+    margin: 20px;
+
+    &:before {
+        content: " ";
+        display: inline-block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: $project-bg-color;
+    }
+
+    &.project {
+        &-pim {
+            background-image: url("/images/projects/pim.png");
+        }
+
+        &-video {
+            background-image: url("/images/projects/video.png");
+        }
+
+        &-ads {
+            background-image: url("/images/projects/interstitial.jpeg");
+        }
+
+        &-rso {
+            background-image: url("/images/projects/rso.png");
+        }
+
+        &-kensho {
+            background-image: url("/images/projects/kensho.png");
+        }
+
+        &-ltvp {
+            background-image: url("/images/projects/ltvp.png");
+        }
+    }
 
     &:hover {
-        background: rgba(255, 255, 255, 0.5);
-        color: #000;
         cursor: pointer;
-        border: 1px solid #000;
+
+        &:before {
+            background-color: $project-hover-bg-color;
+        }
+    }
+
+    .project-info {
+        position: relative;
+        color: #FFF;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.5);
+        // background: rgba(155, 31, 73, 0.92);
+        padding: 20px 30px;
+        border-radius: 3px;
+    }
+
+    .name {
+        font-size: 20px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    .role {
+        font-size: 18px;
+    }
+
+    .company {
+        font-size: 18px;
+        color: #91e4ff;
     }
 }
+
+footer {
+    margin-top: 70px;
+    text-align: center;
+    color: #545454;
+}
+
+.mid-dot {
+    margin: 0 10px;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.modal {
+    background-color: $project-bg-color;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+
+/* mobile styles */
+@media screen and (max-width: 1024px) {
+    body {
+        padding: 20px;
+    }
+
+    .about-me-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-me-side {
+        margin-top: 40px;
+        padding: 0;
+        text-align: center;
+    }
+
+    .projects-section {
+        grid-template: repeat(6, 400px) / repeat(1, 1fr);
+    }
+ }
+
+ @media screen and (max-width: 400px) {
+    .section-title {
+        &:before, &:after {
+            display: none;
+        }
+    }
+ }

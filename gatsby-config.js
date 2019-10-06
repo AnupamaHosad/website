@@ -5,6 +5,20 @@
  */
 
 module.exports = {
-  /* Your site config here */
-  plugins: [`gatsby-plugin-sass`]
+    /* Your site config here */
+    siteMetadata: {
+        siteUrl: "http://anupamahosad.com/"
+    },
+    pathPrefix: "/website",
+    plugins: [
+        "gatsby-plugin-sass",
+        "gatsby-plugin-react-helmet",
+        {
+            resolve: "gatsby-plugin-robots-txt",
+            options: {
+                host: "http://anupamahosad.com/",
+                policy: [{ userAgent: "*", allow: "/" }]
+            }
+        }
+    ]
 }

@@ -1,34 +1,28 @@
 import React from "react";
-import linkedInLogo from "../images/linkedin.png";
-import twitterLogo from "../images/twitter.png";
-import mediumLogo from "../images/medium.png";
-import githubLogo from "../images/github.png";
-import slidesLogo from "../images/slides.png";
-import instaLogo from "../images/insta.png";
 
 const SOCIAL_LINKS = [{
     link: "https://www.linkedin.com/in/anupama-h/",
-    image: linkedInLogo,
+    image: "/images/linked.png",
     altText: "Linked In"
 }, {
     link: "https://medium.com/@anuhosad",
-    image: mediumLogo,
+    image: "/images/medium.png",
     altText: "Medium"
 }, {
     link: "https://twitter.com/anuhosad",
-    image: twitterLogo,
+    image: "/images/twiitter.png",
     altText: "Twitter Link"
 }, {
     link: "https://github.com/AnupamaHosad",
-    image: githubLogo,
+    image: "/images/github.png",
     altText: "Github"
 }, {
     link: "https://slides.com/anuhosad",
-    image: slidesLogo,
+    image: "/images/slides.png",
     altText: "Slides dot com"
 }, {
-    link: "https://www.instagram.com/anunavada/",
-    image: instaLogo,
+    link: "https://www.instagram.com/photography_by_anu/",
+    image: "/images/insta.png",
     altText: "Instagram Link"
 }];
 
@@ -36,7 +30,7 @@ const SocialLinks = () => {
     return (<div className="findme-section">
         {SOCIAL_LINKS.map((obj, index) => {
             const { link, image, altText } = obj;
-            return <a href={link} className="findme-link" target="_blank" key={index}>
+            return <a href={link} className="findme-link" target="_blank" key={index} rel="noopener noreferrer">
                 <img src={image} alt={altText} />
             </a>
         })}
