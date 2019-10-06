@@ -17,7 +17,7 @@ const App = () => {
         <Helmet>
             <html lang="en" />
             <title>Anupama Hosad</title>
-            <link rel="icon" href="/images/AH.png" />
+            <link rel="icon" href="//d2c297xniuypar.cloudfront.net/images/AH.png" />
             {/* <link href="https://fonts.googleapis.com/css?family=Arizonia&display=swap" rel="stylesheet"></link> */}
             {/* <link href="https://fonts.googleapis.com/css?family=Euphoria+Script&display=swap" rel="stylesheet"></link> */}
             <link href="https://fonts.googleapis.com/css?family=Lily+Script+One&display=swap" rel="stylesheet"></link>
@@ -37,7 +37,7 @@ const App = () => {
             </script>
         </Helmet>
         <section className="section about-me-section">
-            <img src="https://avatars2.githubusercontent.com/u/5268207?s=400&u=a8b97f444fae1d482bfb04eaeebdd3581294347a&v=4" className="profile-image" alt="profile"/> 
+            <img src="//d2c297xniuypar.cloudfront.net/images/profile.jpeg" className="profile-image" alt="profile"/> 
             <div className="about-me-side">
                 <h1 className="profile-name">Anupama Hosad</h1>
                 <h4 className="profile-subtitle">UI Engineer <MidDot /> Bibliophile <MidDot /> INFJ</h4>

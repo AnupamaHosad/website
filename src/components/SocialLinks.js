@@ -2,27 +2,27 @@ import React from "react";
 
 const SOCIAL_LINKS = [{
     link: "https://www.linkedin.com/in/anupama-h/",
-    image: "/images/linked.png",
+    image: "//d2c297xniuypar.cloudfront.net/images/linked.png",
     altText: "Linked In"
 }, {
     link: "https://medium.com/@anuhosad",
-    image: "/images/medium.png",
+    image: "//d2c297xniuypar.cloudfront.net/images/medium.png",
     altText: "Medium"
 }, {
     link: "https://twitter.com/anuhosad",
-    image: "/images/twiitter.png",
+    image: "//d2c297xniuypar.cloudfront.net/images/twiitter.png",
     altText: "Twitter Link"
 }, {
     link: "https://github.com/AnupamaHosad",
-    image: "/images/github.png",
+    image: "//d2c297xniuypar.cloudfront.net/images/github.png",
     altText: "Github"
 }, {
     link: "https://slides.com/anuhosad",
-    image: "/images/slides.png",
+    image: "//d2c297xniuypar.cloudfront.net/images/slides.png",
     altText: "Slides dot com"
 }, {
     link: "https://www.instagram.com/photography_by_anu/",
-    image: "/images/insta.png",
+    image: "//d2c297xniuypar.cloudfront.net/images/insta.png",
     altText: "Instagram Link"
 }];
 
