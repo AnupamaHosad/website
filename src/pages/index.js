@@ -8,19 +8,7 @@ import "../styles/index.scss";
 
 const getAnchorTag = (url, content) => {
     return (<a href={url} target="_blank" rel="noopener noreferrer" className="anchor-link">{content}</a>)
-}
-
-const aboutMeDescription = `
-I am a UI Engineer having 7+ years of experience in using client side technologies like HTML, CSS, JavaScript and libraries / frameworks 
-like jQuery, Backbone, React, Handlebars, Underscore, Require JS, Node JS, Bootstrap, Less, SCSS, Grunt and Webpack 
-for building highly performant and scalable web applications.<br />
-In my spare time I attend meetups, explore new technologies & read a lot of fiction! Come say hi if you attend 
-${getAnchorTag("https://www.meetup.com/Girls-Who-Javascript/", "Girls Who Javascript")}, 
-${getAnchorTag("https://www.meetup.com/jslovers-bengaluru/", "JS Lovers-Bengaluru")},
-${getAnchorTag("https://www.meetup.com/JavaScriptMeetup/", "Javascript Meetup")},
-${getAnchorTag("https://www.meetup.com/ReactJS-Bangalore/", "React JS Bangalore")}
-Always in search of new experiences, I have recntly started dabbling into photography.
-`;
+};
 
 const App = () => {
     const currentYear = new Date().getFullYear();

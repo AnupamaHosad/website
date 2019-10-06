@@ -123,6 +123,7 @@ body {
 .projects-section {
     /* overrides for older browsers that do not support grid */
     display: flex;
+    flex-wrap: wrap;
     display: grid;
     grid-template: repeat(2, 400px) / repeat(3, 1fr);
 }
