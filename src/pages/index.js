@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import { Helmet } from "react-helmet"
+import { Helmet } from "react-helmet";
+import { Link } from "gatsby";
 import SocialLinks from "../components/SocialLinks";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
@@ -18,8 +19,6 @@ const App = () => {
             <html lang="en" />
             <title>Anupama Hosad</title>
             <link rel="icon" href="//d2c297xniuypar.cloudfront.net/images/AH.png" />
-            {/* <link href="https://fonts.googleapis.com/css?family=Arizonia&display=swap" rel="stylesheet"></link> */}
-            {/* <link href="https://fonts.googleapis.com/css?family=Euphoria+Script&display=swap" rel="stylesheet"></link> */}
             <link href="https://fonts.googleapis.com/css?family=Lily+Script+One&display=swap" rel="stylesheet"></link>
             <meta name="viewport" content="initial-scale=1,width=device-width" />
             <meta name="description" content="Profile page of Anupama Hosad" />
@@ -36,6 +35,11 @@ const App = () => {
                 `}
             </script>
         </Helmet>
+        <nav className="nav-cont">
+            <Link to="/blog">
+                <span className="pill-item">Blog</span>
+            </Link>
+        </nav>
         <section className="section about-me-section">
             <img src="//d2c297xniuypar.cloudfront.net/images/profile.jpeg" className="profile-image" alt="profile"/> 
             <div className="about-me-side">

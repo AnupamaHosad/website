@@ -1,0 +1,34 @@
+{
+    "title": [
+        "Creating true immutable values in Javascript"
+    ],
+    "link": [
+        "https://medium.com/@anuhosad/creating-true-immutable-values-in-javascript-65041209b87?source=rss-bc5490c02ddb------2"
+    ],
+    "guid": [
+        {
+            "_": "https://medium.com/p/65041209b87",
+            "$": {
+                "isPermaLink": "false"
+            }
+        }
+    ],
+    "category": [
+        "javascript",
+        "objects",
+        "es6",
+        "const"
+    ],
+    "dc:creator": [
+        "Anupama"
+    ],
+    "pubDate": [
+        "Mon, 16 Jul 2018 13:25:10 GMT"
+    ],
+    "atom:updated": [
+        "2018-07-16T13:27:44.112Z"
+    ],
+    "content:encoded": [
+        "<p>ES6 introduced a new declaration called const for declaring variables as holding constant (i.e. immutable) values.</p><p>Here is the definition of const from the <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const\">MDN web docs</a>.</p><blockquote>Constants are block-scoped, much like variables defined using the let statement. The value of a constant cannot change through re-assignment, and it can&#39;t be redeclared.</blockquote><p>What this means is that if you declare a variable as const, it becomes a read only value and you cannot change its value after the initial assignment. Doing so would throw an error as shown below:</p><figure><img alt=\"\" src=\"https://cdn-images-1.medium.com/max/1024/1*J5rpdvpr1EVpoWB7RFZy_g.png\" /><figcaption>Error when changing a “const” value</figcaption></figure><p>But an interesting thing happens when we declare an object as a const value.<br>Though you cannot change the object value, you can still update its property values!</p><figure><img alt=\"\" src=\"https://cdn-images-1.medium.com/max/1024/1*5c1apn8B51z0Wl_ELCTsEg.png\" /><figcaption>Declaring Object as “const”</figcaption></figure><p>As seen in the above image, the variable called stationaryBox is declared as a const. So, when you try to replace the object value, it gives you an error. However you can still access the property values of the object (like pencils key in the above example) and update them individually. The same thing happens when declaring an array as const .</p><p>Then how can you truly prevent an object from being updated ?</p><p>There are a couple of ways to do that in conjunction with const declaration:</p><p><strong>1)</strong> <strong>Using object property descriptors</strong></p><p>Every object property is defined by 3 descriptors:<br><em>a) enumerable</em> : if true, property will be listed in loops <br><em>b) writable</em> : if true, property value can be changed<br><em>c) configurable</em> : if true, property descriptors can be changed</p><p>So we can prevent an object from being updated by setting the descriptor value to writable:false, configurable: false for all the object properties as shown below:</p><pre>const stationaryBox = {<br>  pencils: 2,<br>  pens: 3,<br>  eraser: 1<br>};</pre><pre>Object.defineProperties(stationaryBox, {<br>  pencils: {enumerable: true, writable: false, configurable: false},<br>  pens: {enumerable: true, writable: false, configurable: false},<br>  eraser: {enumerable: true, writable: false, configurable: false}<br>});</pre><p><strong>2) Using Object.freeze()</strong></p><p>Instead of setting writable: false, configurable: false on every property, there is an Object method called freeze() that you can use which does the exact same thing as above on all object properties.</p><pre>const stationaryBox = {<br>  pencils: 2,<br>  pens: 3,<br>  eraser: 1<br>};</pre><pre>Object.freeze(stationaryBox);</pre><p>If you instead want to just prevent adding new properties, you can use Object.preventExtensions(obj) . To prevent both addition and removal of properties you can use Object.seal(obj) .</p><img src=\"https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=65041209b87\" width=\"1\" height=\"1\">"
+    ]
+}

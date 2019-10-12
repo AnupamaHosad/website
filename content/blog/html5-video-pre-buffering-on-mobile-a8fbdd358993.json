@@ -1,0 +1,35 @@
+{
+    "title": [
+        "HTML5 Video Pre-buffering on Mobile"
+    ],
+    "link": [
+        "https://medium.com/@anuhosad/html5-video-pre-buffering-on-mobile-a8fbdd358993?source=rss-bc5490c02ddb------2"
+    ],
+    "guid": [
+        {
+            "_": "https://medium.com/p/a8fbdd358993",
+            "$": {
+                "isPermaLink": "false"
+            }
+        }
+    ],
+    "category": [
+        "html5-video",
+        "javascript",
+        "html5",
+        "mobile",
+        "video-preloading"
+    ],
+    "dc:creator": [
+        "Anupama"
+    ],
+    "pubDate": [
+        "Mon, 21 May 2018 10:16:31 GMT"
+    ],
+    "atom:updated": [
+        "2018-05-21T10:23:16.464Z"
+    ],
+    "content:encoded": [
+        "<h3><strong>The Problem:</strong></h3><p>Pre-buffering a HTML5 video resource on a mobile browser or a mobile webview is a herculean task. This is because the standard preload attribute on the HTML5 &lt;video&gt; tag is ignored or disabled by mobile browser vendors to save on the data costs to the user.</p><p>Here is the definition of the preload attribute from the <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video\">MDN web docs</a>:</p><blockquote><strong>preload</strong>This enumerated attribute is intended to provide a hint to the browser about what the author thinks will lead to the best user experience. It may have one of the following values:</blockquote><blockquote>none: indicates that the video should not be preloaded.</blockquote><blockquote>metadata: indicates that only video metadata (e.g. length) is fetched.</blockquote><blockquote>auto: indicates that the whole video file could be downloaded, even if the user is not expected to use it.</blockquote><blockquote>the <em>empty string</em>: synonym of the auto value.</blockquote><p>Hence, the preload attribute is only a hint to the browser to preload the video resource and not a mandate. In mobile devices, the video does not start downloading until the user initiates playback.</p><p>But, what if your task at hand requires you to show a buffer free, instant playing video experience to your users? Here we discuss some possible workarounds to solve this problem.</p><p>The below techniques assume the following video tag in your HTML</p><pre>&lt;video id=&quot;video&quot; src=&quot;<a href=\"http://techslides.com/demos/sample-videos/small.mp4\">http://techslides.com/demos/sample-videos/small.mp4</a>&quot; controls /&gt;</pre><h3><strong>The (possible) solutions:</strong></h3><p><strong>1)</strong> <strong>Using </strong><strong>XMLHttpRequest to preload the entire video</strong></p><p>You can make an ajax call to fetch the entire video as a blob and then append the resultant video URL created usingURL.createObjectUrl() to the video tag as show below:</p><pre>var request = new XMLHttpRequest();</pre><pre>request.open(&quot;GET&quot;, &quot;<a href=\"http://techslides.com/demos/sample-videos/small.mp4\">http://techslides.com/demos/sample-videos/small.mp4</a>&quot;, true);</pre><pre>/* set the response to blob type */<br>request.responseType = &quot;blob&quot;;</pre><pre>request.onload = function () {<br>  if (this.status === 200) {<br>     var videoBlob = this.response;<br>     /* create the video URL from the blob */<br>     var videoUrl = URL.createObjectURL(videoBlob);<br>     /* set the video URL as source on the video element */<br>     video.src = videoUrl;<br>  }<br>}</pre><pre>request.send();</pre><p>Using this technique the entire video has to be downloaded before you can use it. The other drawback is that you can only download videos from the same domain or from domains that have allowed cross origin access on the resource. Otherwise you will get cross domain resource sharing issues as shown below:</p><figure><img alt=\"\" src=\"https://cdn-images-1.medium.com/max/1024/1*8gQG2Z5MeqnvshZfIzJOfA.png\" /><figcaption>Cross domain resource access issues</figcaption></figure><p><strong>2)</strong> <strong>Using </strong><strong>load() and </strong><strong>play() methods</strong></p><p>Call video.load() method that triggers the loading of the video before you land on the page / view that is showing the video. Once the video comes into view call video.play() method.<br>This method works only on iOS and does not work in android.</p><p><strong>3) Playing a muted video in the background</strong></p><p>First mute the video with video.muted = true. Then call video.play() method, to start the video playback before you land on the page / view that is showing the video. Once the video comes into view call video.pause() function to pause the video and reset the video to the beginning using video.currentTime = 0 .</p><p>You can also try the same technique as above by setting the autoplay attribute on the video tag instead of calling video.play() method.</p><p><strong>4) Playing a muted video with </strong><strong>timeupdate event</strong></p><p>Call video.play() before the video is shown and on video timeupdate event, when video.currentTime &gt; 0, call video.pause() method and reset the video to the beginning using video.currentTime = 0. The video will then continue to load in the background.</p><p>Solutions 2–4 help you to partially or fully preload the video.</p><p>All the above techniques help you to pre-buffer a video on mobile browsers and webviews. You can choose whichever one best suits your needs.</p><img src=\"https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=a8fbdd358993\" width=\"1\" height=\"1\">"
+    ]
+}

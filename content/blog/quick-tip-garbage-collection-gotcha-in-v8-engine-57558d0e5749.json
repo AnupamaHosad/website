@@ -1,0 +1,35 @@
+{
+    "title": [
+        "Quick Tip : Garbage Collection Gotcha in V8 Engine"
+    ],
+    "link": [
+        "https://medium.com/@anuhosad/quick-tip-garbage-collection-gotcha-in-v8-engine-57558d0e5749?source=rss-bc5490c02ddb------2"
+    ],
+    "guid": [
+        {
+            "_": "https://medium.com/p/57558d0e5749",
+            "$": {
+                "isPermaLink": "false"
+            }
+        }
+    ],
+    "category": [
+        "chrome-developer-tools",
+        "javascript",
+        "garbage-collection",
+        "debugging",
+        "bugs"
+    ],
+    "dc:creator": [
+        "Anupama"
+    ],
+    "pubDate": [
+        "Thu, 10 May 2018 11:48:30 GMT"
+    ],
+    "atom:updated": [
+        "2018-05-18T09:06:08.690Z"
+    ],
+    "content:encoded": [
+        "<p>Have you ever come across a variable that was undefined or not available when inspecting with the debugger in Chrome developer tools ? Or, maybe the variable contained a value that you did not expect ?</p><p>Before you think there is a bug in your application logic and spend hours debugging it, wait! Just read further to understand why this happens!</p><p>The V8 engine (which is the Javascript engine in Chrome browser), does a garbage collection of variables that are no longer used and hence some variables might not be available or might have a different value than expected when you are debugging it using Chrome debugger. This is an optimization that is done by the V8 engine which is a feature and not a bug ;-)</p><p>What you can do in such cases is to just console.log the variable whose value you want to inspect instead of checking via the debugger.</p><p>Hope this saved some time that you might have spent in debugging an issue that is actually not a issue!</p><img src=\"https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=57558d0e5749\" width=\"1\" height=\"1\">"
+    ]
+}

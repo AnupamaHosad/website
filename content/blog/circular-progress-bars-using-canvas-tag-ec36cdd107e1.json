@@ -1,0 +1,33 @@
+{
+    "title": [
+        "Circular progress bars using Canvas tag"
+    ],
+    "link": [
+        "https://medium.com/@anuhosad/circular-progress-bars-using-canvas-tag-ec36cdd107e1?source=rss-bc5490c02ddb------2"
+    ],
+    "guid": [
+        {
+            "_": "https://medium.com/p/ec36cdd107e1",
+            "$": {
+                "isPermaLink": "false"
+            }
+        }
+    ],
+    "category": [
+        "javascript",
+        "html5-canvas",
+        "progress-circle-in-html"
+    ],
+    "dc:creator": [
+        "Anupama"
+    ],
+    "pubDate": [
+        "Thu, 07 Jun 2018 04:16:01 GMT"
+    ],
+    "atom:updated": [
+        "2018-06-07T04:18:08.154Z"
+    ],
+    "content:encoded": [
+        "<p>This tutorial is aimed at creating filled circular progress bars using Canvas tag like the ones shown below:</p><figure><img alt=\"\" src=\"https://cdn-images-1.medium.com/max/804/1*J1FCzF9BGhdRp8IR_Lvp7w.jpeg\" /></figure><p>Before jumping into the code, we need to understand how to draw a circle using Canvas tag.</p><p>For the purposes of the Canvas tag, the circle is represented as follows:</p><figure><img alt=\"\" src=\"https://cdn-images-1.medium.com/max/592/1*6tHkGnGJb_yfFo1krzzZng.png\" /></figure><p>So, with this in mind, to draw a circle using Canvas tag we can use the following code:</p><p><strong>HTML</strong></p><pre>&lt;canvas width=&quot;150&quot; height=&quot;150&quot; id=&quot;canvas&quot; /&gt;</pre><p><strong>JS</strong></p><pre>let canvas = document.getElementById(&quot;canvas&quot;);<br>let context = canvas.getContext(&quot;2d&quot;);<br>let centerX = canvas.width / 2;<br>let centerY = canvas.height / 2;<br>let radius = 70;<br>    <br>/* draw the circle */ </pre><pre>/* begin the path */<br>context.beginPath();</pre><pre>/* move to the center of the circle */<br>context.moveTo(centerX, centerY); </pre><pre>/* draw arc from 0 to 2 * Math.PI which is equivalent to 360 deg */<br>context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);</pre><pre>/* close the path */<br>context.closePath();</pre><pre>/* fill it with grey color */<br>context.fillStyle = &quot;#ddd&quot;;<br>context.fill();</pre><pre>/* give a border to the circle */<br>context.strokeStyle = &quot;rgba(200, 208, 218, 0.66)&quot;;<br>context.stroke();</pre><p>The above code draws a grey circle. Now to show the green progress circle based on the progress percentage, we would write the following code:</p><pre>/* startAngle is from 0 deg which is 1.5 * Math.PI (refer to the diagram above) */<br>let startAngle = 1.5 * Math.PI;</pre><pre>/* calculate the value of one unit on the circle */<br>let unitValue = (Math.PI - 0.5 * Math.PI) / 25;</pre><pre>/* find the end angle based on the start angle */<br>if (percent &gt;= 0 &amp;&amp; percent &lt;= 25) {<br> endAngle = startAngle + (percent * unitValue);<br>} else if (percent &gt; 25 &amp;&amp; percent &lt;= 50) {<br> endAngle = startAngle + (percent * unitValue);<br>} else if (percent &gt; 50 &amp;&amp; percent &lt;= 75) {<br> endAngle = startAngle + (percent * unitValue);<br>} else if (percent &gt; 75 &amp;&amp; percent &lt;= 100) {<br> endAngle = startAngle + (percent * unitValue);<br>}<br>    <br>/* draw the green circle */<br>context.beginPath();<br>context.moveTo(centerX, centerY);<br>context.arc(centerX, centerY, radius, startAngle, endAngle, false);<br>context.closePath();<br>context.fillStyle = &quot;#2cb191&quot;;<br>context.fill();</pre><p>This draws the green progress circle.</p><p>The complete code is as shown below:</p><pre>function drawProgressCircle (percent) {<br>  let canvas = document.getElementById(&quot;canvas&quot;);<br>  let context = canvas.getContext(&quot;2d&quot;);<br>  let centerX = canvas.width / 2;<br>  let centerY = canvas.height / 2;<br>  let radius = 70;<br>    <br>  /* draw the grey circle */ <br>  context.beginPath();<br>  context.moveTo(centerX, centerY); <br>  context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);<br>  context.closePath();<br>  context.fillStyle = &quot;#ddd&quot;;<br>  context.fill();<br>  context.strokeStyle = &quot;rgba(200, 208, 218, 0.66)&quot;;<br>  context.stroke();<br>  <br>  /* draw the green circle based on percentage */<br>  let startAngle = 1.5 * Math.PI;<br>  let unitValue = (Math.PI - 0.5 * Math.PI) / 25;<br>  if (percent &gt;= 0 &amp;&amp; percent &lt;= 25) {<br>     endAngle = startAngle + (percent * unitValue);<br>  } else if (percent &gt; 25 &amp;&amp; percent &lt;= 50) {<br>     endAngle = startAngle + (percent * unitValue);<br>  } else if (percent &gt; 50 &amp;&amp; percent &lt;= 75) {<br>     endAngle = startAngle + (percent * unitValue);<br>  } else if (percent &gt; 75 &amp;&amp; percent &lt;= 100) {<br>   endAngle = startAngle + (percent * unitValue);<br>  }<br>    <br>  context.beginPath();<br>  context.moveTo(centerX, centerY);<br>  context.arc(centerX, centerY, radius, startAngle, endAngle, false);<br>  context.closePath();<br>  context.fillStyle = &quot;#2cb191&quot;;<br>  context.fill();<br>}</pre><pre>drawProgressCircle(80);</pre><img src=\"https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=ec36cdd107e1\" width=\"1\" height=\"1\">"
+    ]
+}

@@ -19,6 +19,14 @@ module.exports = {
                 host: "http://anupamahosad.com/",
                 policy: [{ userAgent: "*", allow: "/" }]
             }
-        }
+        },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+              name: `blog`,
+              path: `${__dirname}/content/blog/`,
+            },
+        },
+        "gatsby-transformer-json"
     ]
 }

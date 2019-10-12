@@ -1,0 +1,33 @@
+{
+    "title": [
+        "Debouncing events with React"
+    ],
+    "link": [
+        "https://medium.com/@anuhosad/debouncing-events-with-react-b8c405c33273?source=rss-bc5490c02ddb------2"
+    ],
+    "guid": [
+        {
+            "_": "https://medium.com/p/b8c405c33273",
+            "$": {
+                "isPermaLink": "false"
+            }
+        }
+    ],
+    "category": [
+        "react",
+        "debouncing",
+        "javascript"
+    ],
+    "dc:creator": [
+        "Anupama"
+    ],
+    "pubDate": [
+        "Sun, 03 Feb 2019 16:08:25 GMT"
+    ],
+    "atom:updated": [
+        "2019-02-03T16:15:00.864Z"
+    ],
+    "content:encoded": [
+        "<p>I recently came across a use case in the project I am working on where I had to debounce the input onChange event callback.</p><p>A common use case is when you have an input element like below which functions as a search input in your app.</p><pre>&lt;input name=&quot;search-input&quot; onChange={this.onChange} /&gt;</pre><p>If you are making API calls to fetch the search data as shown below, then, to make it performant you should not make the API call for every character that is input by the user, but only after the user input stops for some milliseconds.</p><pre>onChange = (event) =&gt; {<br>    let searchString = event.target.value;<br>    fetchSearchData(searchString);<br>}</pre><p>This is easily achieved by using a debounce function. Below I am using the debounce function from the lodash library:</p><pre>&lt;input onChange={_.debounce(this.onChange, 300)} /&gt;</pre><p>The above code passes a debounced function as the event callback to the onChange event. The _.debounce function ensures that the actual onChange event callback is called only when the user has stopped inputting the characters for 300ms.</p><p>But doing this in a React application throws the following error:</p><blockquote><strong>Warning: This synthetic event is reused for performance reasons.<em> </em>If you’re seeing this, you’re accessing the property `target` on a released/nullified synthetic event.</strong></blockquote><figure><img alt=\"\" src=\"https://cdn-images-1.medium.com/max/1024/1*4-KsyAFHHgE8sPk3uS9JXQ.png\" /><figcaption>Error in the console</figcaption></figure><p>This error is thrown because React does <a href=\"https://reactjs.org/docs/events.html#event-pooling\"><strong>event pooling</strong></a><strong>. </strong>This means that the event object (which is a wrapper created by React over the actual event object) that is passed to an event callback is reused and hence it will be nullified or cleared once the event callback finishes. So accessing event.target.value in the example above throws an error because event object was nullified when the event callback finished and we are trying to access it later (after 300ms in this example) through the debounce function.</p><p>To fix this issue, we need to tell React that the event object will be used in the future and hence should not be nullified. This is done by calling the persist() method on React’s synthetic event object.</p><p>So we have to rewrite the onChange event handler as shown below to make it work with debounce:</p><pre>onChange = (event) =&gt; {<br>    /* signal to React not to nullify the event object */<br>    event.persist();<br>    <br>    if (!this.debouncedFn) {<br>      this.debouncedFn =  _.debounce(() =&gt; {<br>         let searchString = event.target.value;<br>         fetchSearchData(searchString);<br>      }, 300);<br>    }</pre><pre>    this.debouncedFn();<br>}</pre><pre><br>// in render method</pre><pre>&lt;input name=&quot;search-input&quot; onChange={this.onChange} /&gt;</pre><p>That’s it folks! Happy Reacting :-)</p><img src=\"https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=b8c405c33273\" width=\"1\" height=\"1\">"
+    ]
+}
