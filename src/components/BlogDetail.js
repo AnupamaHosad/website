@@ -2,7 +2,6 @@ import React from "react"
 import { graphql, useStaticQuery, Link } from "gatsby";
 
 const BlogDetail = (props) => {
-    console.log(props);
     const data = useStaticQuery(graphql`
         query blogDetailList {
             allBlogJson {

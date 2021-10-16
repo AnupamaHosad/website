@@ -1,11 +1,11 @@
 @import "./variables.scss";
 
 .back-link {
-    color: $secondary-title-color;
+    color: $secondary-color;
 }
 
 .post-summary {
-    background: #FFF;
+    background: $blog-tile-color;
     border: 1px solid #e5e5e5;
     padding: 0 20px 20px;
     margin: 30px 0;
@@ -31,16 +31,16 @@
     }
 
     .medium-btn {
-        color: $secondary-title-color;
+        color: $secondary-color;
     }
 }
 
 .blog-title {
-    color: $primary-title-color;
+    color: $primary-color;
 }
 
 .posted-on-text {
-    color: $secondary-title-color;
+    color: $secondary-color;
     font-size: 15px;
 }
 

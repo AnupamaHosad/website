@@ -1,0 +1,35 @@
+{
+    "title": [
+        "Porting Medium articles to create a blog in Gatsby"
+    ],
+    "link": [
+        "https://medium.com/@anuhosad/porting-medium-articles-to-create-a-blog-in-gatsby-749c0932523f?source=rss-bc5490c02ddb------2"
+    ],
+    "guid": [
+        {
+            "_": "https://medium.com/p/749c0932523f",
+            "$": {
+                "isPermaLink": "false"
+            }
+        }
+    ],
+    "category": [
+        "medium-to-gatsby",
+        "porting-medium-articles",
+        "gatsby",
+        "javascript",
+        "gatsbyjs"
+    ],
+    "dc:creator": [
+        "Anupama"
+    ],
+    "pubDate": [
+        "Sun, 13 Oct 2019 16:01:11 GMT"
+    ],
+    "atom:updated": [
+        "2019-10-13T16:01:11.613Z"
+    ],
+    "content:encoded": [
+        "<figure><img alt=\"\" src=\"https://cdn-images-1.medium.com/max/501/1*WBV4y6b5n1Lgx5zFtbnUTQ.jpeg\" /></figure><p>I recently built my <a href=\"http://anupamahosad.com\">personal website</a> using Gatsby JS. The logical next step was to add a blog section where I wanted to display all the articles that I had written on Medium.</p><p>While I wanted to continue writing on Medium as it gives a great writing &amp; publishing platform, I also wanted to display the Medium articles on my website as well.</p><p>But to burst my bubble, I found out through <a href=\"https://twitter.com/reeversedev/status/1180899955407376386\">this</a> twitter thread that Medium does not provide an easy to use API to pull all the articles from Medium. Though I got a few suggestions to make this work, I wanted to try something new.</p><p>This is how I ended up accomplishing the task!</p><ol><li><strong>Node script to pull RSS feed from Medium &amp; convert it to JSON</strong></li></ol><p>I wrote a simple node script to fetch the Medium RSS feed which is in XML format. The RSS feed URL for an account would look something like https://medium.com/feed/&lt;username&gt;</p><p>In this RSS feed, there would be an &lt;item&gt; tag for each of the articles posted on medium by the username provided in the URL. It would look something like this:</p><figure><img alt=\"\" src=\"https://cdn-images-1.medium.com/max/1024/1*MHNYV3lxYga-x5E60ad4cg.png\" /></figure><p>After fetching this RSS feed, I converted the XML to JSON using <a href=\"https://www.npmjs.com/package/xml2js\">xml2js</a> npm package and wrote the resulting JSON for each of the articles in their respective files under content/blog/ directory in my main project directory.</p><p>The complete node script for this can be found <a href=\"https://github.com/AnupamaHosad/website/blob/master/medium.js\">here</a>.</p><p><strong>2. Inject JSON data from the file into a component using Gatsby filesystem plugin</strong></p><p>Next, I used the <a href=\"https://www.gatsbyjs.org/packages/gatsby-source-filesystem/\">gatsby-source-filesystem</a> plugin to source each article’s JSON data that is now present in my file system under content/blog/ directory into my Gatsby application. I also had to use the <a href=\"https://www.gatsbyjs.org/packages/gatsby-transformer-json/\">gatsby-transformer-json</a> plugin to convert the JSON string from the JSON file into JavaScript objects that could be used in my components.</p><p>To use these two plugins in your Gatsby application, add the following to the plugins section in gatsby-config.js</p><pre>plugins: [<br>   {<br>      resolve: `gatsby-source-filesystem`,<br>      options: {<br>          name: `blog`,<br>          path: `${__dirname}/content/blog/`<br>      },<br>   },<br>   &quot;gatsby-transformer-json&quot;<br>]</pre><p>I finally used the useStaticQuery hook to pull in the JSON data into my Blog component.</p><pre>const data = useStaticQuery(graphql`<br>     query blogDetailList {<br>        allBlogJson {<br>            edges {<br>               node {<br>                  title<br>                  pubDate<br>                  link<br>                  id,<br>                  content_encoded<br>               }<br>            }<br>         }<br>     }<br>`);</pre><p>Here content_encoded will have the entire article data that I used to display the blog content.</p><p><strong>3. Add the node script as part of your deployment process</strong></p><p>As I use Github Pages to deploy my website, I added these two lines into the script section of my package.json so as to make sure to fetch all the latest articles from Medium every time before deploying the website.</p><pre>&quot;scripts&quot;: {<br>    &quot;deploy&quot;: &quot;npm run medium &amp;&amp; gatsby build --prefix-paths &amp;&amp; gh-pages -d public&quot;,<br>    &quot;medium&quot;: &quot;node medium.js&quot;<br>}</pre><p>This helps me keep the articles in my website’s blog section to always be in sync with those on Medium.</p><p>That’s all there is to it!</p><img src=\"https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=749c0932523f\" width=\"1\" height=\"1\">"
+    ]
+}

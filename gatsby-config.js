@@ -9,7 +9,6 @@ module.exports = {
     siteMetadata: {
         siteUrl: "http://anupamahosad.com/"
     },
-    pathPrefix: "/website",
     plugins: [
         "gatsby-plugin-sass",
         "gatsby-plugin-react-helmet",
@@ -27,6 +26,17 @@ module.exports = {
               path: `${__dirname}/content/blog/`,
             },
         },
-        "gatsby-transformer-json"
+        "gatsby-transformer-json",
+        {
+			resolve: "gatsby-plugin-pdf",
+			options: {
+                // allPages: false,
+				paths: ["/resume"],
+				outputPath: "exports",
+                // styleTagOptions: {
+                //     path: "./src/styles/resume.scss"
+                // }
+			},
+		}
     ]
 }

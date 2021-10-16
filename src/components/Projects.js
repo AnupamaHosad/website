@@ -2,6 +2,12 @@ import React from "react";
 // import Modal from "./Modal";
 
 const PROJECT_ITEMS = [{
+    title: "Self Serve",
+    className: "project-ss",
+    role: "Tech Lead - UI",
+    company: "Unbxd",
+    description: ""
+}, {
     title: "PIM",
     className: "project-pim",
     role: "Tech Lead - UI",

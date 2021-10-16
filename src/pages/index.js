@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
-import { Helmet } from "react-helmet";
 import { Link } from "gatsby";
 import SocialLinks from "../components/SocialLinks";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import MidDot from "../components/MidDot";
-import "../styles/index.scss";
+import "../styles/main.scss";
+import HeadSection from "../components/HeadSection";
 
 const getAnchorTag = (url, content) => {
     return (<a href={url} target="_blank" rel="noopener noreferrer" className="anchor-link">{content}</a>)
@@ -14,28 +14,12 @@ const getAnchorTag = (url, content) => {
 const App = () => {
     const currentYear = new Date().getFullYear();
 
-    return (<Fragment>
-        <Helmet>
-            <html lang="en" />
-            <title>Anupama Hosad</title>
-            <link rel="icon" href="//d2c297xniuypar.cloudfront.net/images/AH.png" />
-            <link href="https://fonts.googleapis.com/css?family=Lily+Script+One&display=swap" rel="stylesheet"></link>
-            <meta name="viewport" content="initial-scale=1,width=device-width" />
-            <meta name="description" content="Profile page of Anupama Hosad" />
-            <meta name="keywords" content="Anupama, Hosad, UI Engineer, Front end developer, UI, Front end" />
-            {/* Global site tag (gtag.js) - Google Analytics */}
-            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149349342-1"></script>
-            <script>
-                {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag("js", new Date());
-
-                gtag("config", "UA-149349342-1");
-                `}
-            </script>
-        </Helmet>
+    return (<div className="home">
+        <HeadSection />
         <nav className="nav-cont">
+            <Link to="/resume">
+                <span className="pill-item">Resume</span>
+            </Link>
             <Link to="/blog">
                 <span className="pill-item">Blog</span>
             </Link>
@@ -73,9 +57,9 @@ const App = () => {
         <footer>
             <span>Copyright &copy; {currentYear} Anupama Hosad</span><MidDot />
             <span>All rights reserved</span><MidDot />
-            <span>Made with <span role="img" aria-label="love">❤️</span>using {getAnchorTag("https://www.gatsbyjs.org/", "Gatsby JS")}</span>
+            <span>Made with <span role="img" aria-label="love">❤️</span> using {getAnchorTag("https://www.gatsbyjs.org/", "Gatsby JS")}</span>
         </footer>
-    </Fragment>);
+    </div>);
 }
 
 export default App;
