@@ -4,16 +4,18 @@ const TECH_SKILLS = [
     "HTML",
     "CSS",
     "Javascript",
-    "Node JS",
-    "jQuery",
-    "Handlebars.js",
-    "Backbone JS",
     "React JS",
     "Gatsby",
-    "Less",
+    "Graph QL",
     "SCSS",
-    "Grunt",
-    "Webpack"
+    "Less",
+    "Node JS",
+    "jQuery",
+    "Handlebars JS",
+    "Underscore JS",
+    "Backbone JS",
+    "Grunt JS",
+    "Webpack",
 ];
 
 const TechSkills = () => {
@@ -21,7 +23,7 @@ const TechSkills = () => {
         <div className="heading-1">Tech Skills</div>
         <ul className="tech-skills">
             {TECH_SKILLS.map(skill => {
-                return <li className="skill-tag">
+                return <li className="skill-tag" key={skill}>
                     {skill}
                 </li>
             })}

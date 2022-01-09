@@ -17,11 +17,6 @@ const SKILL_ITEMS = [
             return (<img src="//d2c297xniuypar.cloudfront.net/images/js.png" alt="Underscore Logo" />);
         }
     }, {
-        name: "ES6",
-        render: () => {
-            return (<img src="//d2c297xniuypar.cloudfront.net/images/es6.png" alt="Underscore Logo" />);
-        }
-    }, {
         name: "jQuery",
         render: () => {
             return (<img src="//d2c297xniuypar.cloudfront.net/images/jquery.png" alt="Underscore Logo" />);
@@ -66,6 +61,17 @@ const SKILL_ITEMS = [
             return (<img src="//d2c297xniuypar.cloudfront.net/images/react.png" alt="React JS Logo" />);
         }
     }, {
+        name: "Gatsby",
+        className: "medium",
+        render: () => {
+            return (<img src="//d2c297xniuypar.cloudfront.net/images/gatsby-logo.png" alt="Gatsby JS Logo" />);
+        }
+    }, {
+        name: "GraphQL",
+        render: () => {
+            return (<img src="//d2c297xniuypar.cloudfront.net/images/graphQL-logo.png" className="graphql-logo" alt="Graph QL Logo" />);
+        }
+    }, {
         name: "Node JS",
         className: "medium",
         render: () => {
@@ -73,9 +79,8 @@ const SKILL_ITEMS = [
         }
     }, {
         name: "Bootstrap",
-        className: "large",
         render: () => {
-            return (<img src="//d2c297xniuypar.cloudfront.net/images/bootstrap.png" alt="Bootstrap Logo" />);
+            return (<img src="//d2c297xniuypar.cloudfront.net/images/bootstrap-logo.png" className="bootstrap-logo" alt="Bootstrap Logo" />);
         }
     }, {
         name: "Less",

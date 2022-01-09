@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Link } from "gatsby";
 import SocialLinks from "../components/SocialLinks";
 import Skills from "../components/Skills";
@@ -16,23 +16,23 @@ const App = () => {
 
     return (<div className="home">
         <HeadSection />
-        <nav className="nav-cont">
-            <Link to="/resume">
-                <span className="pill-item">Resume</span>
-            </Link>
+        <nav className="navbar">
+            <a href="/resume" target="_blank" rel="noopener noreferrer">
+                <span className="navbar__pill">Resume</span>
+            </a>
             <Link to="/blog">
-                <span className="pill-item">Blog</span>
+                <span className="navbar__pill">Blog</span>
             </Link>
         </nav>
-        <section className="section about-me-section">
+        <section className="section about-me">
             <img src="//d2c297xniuypar.cloudfront.net/images/profile.jpeg" className="profile-image" alt="profile"/> 
-            <div className="about-me-side">
+            <div className="about-me__side">
                 <h1 className="profile-name">Anupama Hosad</h1>
-                <h4 className="profile-subtitle">UI Engineer <MidDot /> Bibliophile <MidDot /> INFJ</h4>
+                <h4 className="profile-subtitle">Frontend Engineer <MidDot /> Bibliophile <MidDot /> INFJ</h4>
                 <p className="profile-desc">
-                I am a UI Engineer having 7+ years of experience in using client side technologies like HTML, CSS, JavaScript and libraries / frameworks 
-                like jQuery, Backbone, React, Handlebars, Underscore, Require JS, Node JS, Bootstrap, Less, SCSS, Grunt and Webpack 
-                for building highly performant and scalable web applications.<br />
+                I am a UI Engineer having 9+ years of experience in using client side technologies like HTML, CSS, JavaScript and libraries / frameworks 
+                like jQuery, Backbone, React, Gatsby, Grahp QL, Handlebars, Underscore, Require JS, Node JS, Bootstrap, Less, SCSS, Grunt and Webpack 
+                for building highly performant and scalable web applications.<br /><br />
                 In my spare time I attend meetups, explore new technologies & read a lot of fiction! Come say hi if you attend 
                 &nbsp;{getAnchorTag("https://www.meetup.com/Girls-Who-Javascript/", "Girls Who Javascript")}, 
                 &nbsp;{getAnchorTag("https://www.meetup.com/jslovers-bengaluru/", "JS Lovers-Bengaluru")},
@@ -43,15 +43,15 @@ const App = () => {
             </div>
         </section>
         <section className="section">
-            <h1 className="section-title">Skills</h1>
+            <h1 className="section__title">Skills</h1>
             <Skills />
         </section>
         <section className="section">
-            <h1 className="section-title">Projects</h1>
+            <h1 className="section__title">Roles & Projects</h1>
             <Projects />
         </section>
         <section className="section">
-            <h1 className="section-title">Find me on</h1>
+            <h1 className="section__title">Find me on</h1>
             <SocialLinks />
         </section>
         <footer>

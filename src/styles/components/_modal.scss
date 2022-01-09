@@ -1,0 +1,32 @@
+.modal {
+    background-color: $project-bg-color;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #FFF;
+    padding: 30px 40px;
+    border-radius: 4px;
+    width: 60%;
+}
+
+.modal-close-cont {
+    color: #FFF;
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    font-size: 40px;
+
+}
+
+.modal-close {
+    cursor: pointer;
+}

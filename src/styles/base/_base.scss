@@ -1,0 +1,44 @@
+html, body {
+    color: $font-color;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: "Nunito Sans", "Helvetica Neue", "Helvetica", "Roboto", "sans-serif";
+    line-height: 1.5em;
+    box-sizing: border-box;
+}
+
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.anchor-link {
+    color: $secondary-color;
+    text-decoration: none;
+}
+
+.mid-dot {
+    margin: 0 10px;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.flex-space-center {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* mobile styles */
+@media screen and (max-width: 1024px) {
+    body {
+        padding: 20px;
+    }
+ }

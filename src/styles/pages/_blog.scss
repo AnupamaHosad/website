@@ -1,0 +1,61 @@
+.blog-list, .blog-detail {
+    background-color: $bg-color;
+    padding: 40px;
+}
+
+.back-link {
+    color: $secondary-color;
+}
+
+.post-summary {
+    background: $blog-tile-color;
+    border: 1px solid #e5e5e5;
+    padding: 0 20px 20px;
+    margin: 30px 0;
+    box-shadow: 5px 5px 12px 1px #E5E5E5;
+
+    a {
+        color: $font-color;
+        text-decoration: none;
+    }
+
+    &:hover {
+        background: #faf9f9;
+    }
+}
+
+.blog-detail {
+    header {
+        display: flex;
+    }
+
+    .title-cont {
+        flex: 1;
+    }
+
+    .medium-btn {
+        color: $secondary-color;
+    }
+}
+
+.blog-title {
+    color: $primary-color;
+}
+
+.posted-on-text {
+    color: $secondary-color;
+    font-size: 15px;
+}
+
+.blog-content {
+    margin-top: 50px;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 1024px) { 
+    .blog-detail {
+        header {
+            flex-direction: column;
+        }
+    }
+}

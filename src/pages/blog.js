@@ -2,7 +2,6 @@ import React from "react";
 import BlogList from "../components/BlogList";
 import BlogDetail from "../components/BlogDetail";
 import { Router } from "@reach/router";
-import "../styles/blog.scss";
 
 const Blog = () => {
     return (

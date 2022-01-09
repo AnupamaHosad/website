@@ -7,7 +7,7 @@
 module.exports = {
     /* Your site config here */
     siteMetadata: {
-        siteUrl: "http://anupamahosad.com/"
+        siteUrl: "https://anupamahosad.com/"
     },
     plugins: [
         "gatsby-plugin-sass",
@@ -15,7 +15,7 @@ module.exports = {
         {
             resolve: "gatsby-plugin-robots-txt",
             options: {
-                host: "http://anupamahosad.com/",
+                host: "https://anupamahosad.com/",
                 policy: [{ userAgent: "*", allow: "/" }]
             }
         },
@@ -30,12 +30,12 @@ module.exports = {
         {
 			resolve: "gatsby-plugin-pdf",
 			options: {
-                // allPages: false,
-				paths: ["/resume"],
+                allPages: true,
+				// /* paths: ["/resume"], */
 				outputPath: "exports",
-                // styleTagOptions: {
-                //     path: "./src/styles/resume.scss"
-                // }
+                styleTagOptions: {
+                    path: "./src/styles/main.css"
+                }
 			},
 		}
     ]

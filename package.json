@@ -13,9 +13,11 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
+    "start-server": "node server.js",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
   },
   "dependencies": {
+    "express": "^4.17.2",
     "gatsby": "^2.32.13",
     "gatsby-plugin-pdf": "0.0.1",
     "gatsby-plugin-react-helmet": "^3.10.0",

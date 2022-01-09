@@ -5,7 +5,7 @@ const HeadSection = () => {
     return ( <Helmet>
         <html lang="en" />
         <title>Anupama Hosad</title>
-        <link rel="icon" href="//d2c297xniuypar.cloudfront.net/images/AH.png" />
+        {/* <link rel="icon" href="//d2c297xniuypar.cloudfront.net/images/AH.png" /> */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link href="https://fonts.googleapis.com/css?family=Lily+Script+One&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700" rel="stylesheet" />
