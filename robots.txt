@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: http://anupamahosad.com/sitemap.xml
-Host: anupamahosad.com
+Sitemap: https://anupamahosad.com/sitemap/sitemap-index.xml
+Host: https://anupamahosad.com
